@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: kube-sysctl
+  namespace: kube-system
+  labels:
+    k8s-app: kube-sysctl
+spec:
+  template:
+    metadata:
+      labels:
+        app: kube-sysctl
+      name: kube-sysctl
+    spec:
+      volumes:
+      - name: sysctl-options
+        configMap:
+          name: sysctl-options
+      containers:
+      - image: ptlange/kube-sysctl:0.1.0
+        name: kube-sysctl
+        securityContext:
+          privileged: true
+        resources:
+          requests:
+            cpu: 10m
+        volumeMounts:
+        - mountPath: /configmap
+          name: sysctl-options

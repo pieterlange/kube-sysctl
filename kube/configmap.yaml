@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sysctl-options
+  namespace: kube-system
+data:
+  sys.net.ipv4.netfilter.ip_conntrack_max: "524288"
