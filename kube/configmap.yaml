@@ -4,4 +4,4 @@ metadata:
   name: sysctl-options
   namespace: kube-system
 data:
-  sys.net.ipv4.netfilter.ip_conntrack_max: "524288"
+  net.netfilter.nf_conntrack_max: "1048576"
