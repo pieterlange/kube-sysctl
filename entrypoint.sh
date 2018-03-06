@@ -8,7 +8,7 @@ set -x
 while true; do
     for option in $(ls -1 /configmap); do
         value="$(cat /configmap/${option})"
-        sysctl -w ${option}="${value}"
+        sysctl -w "$option=$value"
     done
     # TODO dump current sysctl state? (sysctl -a)
     inotifywait -qq -e modify -e create -e delete /configmap/
