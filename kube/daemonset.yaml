@@ -6,6 +6,9 @@ metadata:
   labels:
     k8s-app: kube-sysctl
 spec:
+  selector:
+    labels:
+      app: kube-sysctl
   template:
     metadata:
       labels:
