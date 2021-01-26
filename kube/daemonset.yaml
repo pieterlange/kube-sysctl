@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: kube-sysctl
@@ -17,7 +17,7 @@ spec:
         configMap:
           name: sysctl-options
       containers:
-      - image: ptlange/kube-sysctl:0.1.0
+      - image: ptlange/kube-sysctl:0.1.1
         name: kube-sysctl
         securityContext:
           privileged: true
